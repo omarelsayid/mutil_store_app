@@ -87,8 +87,6 @@ class InnerHeaderWidget extends StatelessWidget {
                   ),
                 ),
               )),
-
-              
         ],
       ),
     );
