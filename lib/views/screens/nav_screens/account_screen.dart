@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:multi_store_app/controller/auth_controller.dart';
+import 'package:multi_store_app/views/screens/detail/screens/order_screen.dart';
 
 class AccountScreen extends StatelessWidget {
-   AccountScreen({super.key});
+  AccountScreen({super.key});
   final AuthController _authController = AuthController();
   @override
   Widget build(BuildContext context) {
@@ -10,9 +11,16 @@ class AccountScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
             onPressed: () async {
-              await _authController.singOutUser(context: context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const OrderScreen();
+                  },
+                ),
+              );
             },
-            child: const Text('signOut')),
+            child: const Text('My orddrs')),
       ),
     );
   }
