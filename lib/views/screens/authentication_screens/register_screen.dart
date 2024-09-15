@@ -38,7 +38,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
   }
 
-  AuthController _authController = AuthController();
+  final AuthController _authController = AuthController();
 
   @override
   Widget build(BuildContext context) {
@@ -322,7 +322,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(
                             builder: (context) {
-                              return LoginScreen();
+                              return const LoginScreen();
                             },
                           ));
                         },

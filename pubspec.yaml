@@ -33,8 +33,10 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.5.1
   google_fonts: ^6.2.1
   http: ^1.2.2
+  shared_preferences: ^2.3.2
 
 dev_dependencies:
 

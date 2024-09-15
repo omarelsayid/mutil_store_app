@@ -14,6 +14,7 @@ class BannerWidget extends StatefulWidget {
 
 class _BannerWidgetState extends State<BannerWidget> {
   late Future<List<BannerModel>> futureBanner;
+ 
 
   @override
   void initState() {

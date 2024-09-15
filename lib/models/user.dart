@@ -79,7 +79,6 @@ class User {
       locality: map['locality'] as String? ?? "",
       password: map['password'] as String? ?? "",
       token: map['token'] as String? ?? "",
-
     );
   }
 
