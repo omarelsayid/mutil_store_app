@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:multi_store_app/models/cart.dart';
+import '../models/cart.dart';
 
 // Define a stateNotifier to expose an instance of the CartNotifier
 // Making it accessible within our app

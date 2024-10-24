@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
-import 'package:multi_store_app/global_variable.dart';
-import 'package:multi_store_app/models/categroy_model.dart';
+import '../global_variable.dart';
+import '../models/categroy_model.dart';
 
 class CategoryController {
 

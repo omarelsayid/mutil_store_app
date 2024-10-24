@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:multi_store_app/global_variable.dart';
-import 'package:multi_store_app/models/user.dart';
+import '../global_variable.dart';
+import '../models/user.dart';
 import 'package:http/http.dart' as http;
-import 'package:multi_store_app/provider/user_provider.dart';
-import 'package:multi_store_app/services/manage_http_response.dart';
-import 'package:multi_store_app/views/screens/authentication_screens/login_screen.dart';
-import 'package:multi_store_app/views/screens/main_screen.dart';
+import '../provider/user_provider.dart';
+import '../services/manage_http_response.dart';
+import '../views/screens/authentication_screens/login_screen.dart';
+import '../views/screens/main_screen.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

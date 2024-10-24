@@ -1,10 +1,11 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:multi_store_app/global_variable.dart';
-import 'package:multi_store_app/models/order.dart';
-import 'package:multi_store_app/services/manage_http_response.dart';
+import '../global_variable.dart';
+import '../models/order.dart';
+import '../services/manage_http_response.dart';
 
 class OrderController {
   // function to upload orders
@@ -89,6 +90,27 @@ class OrderController {
       }
     } catch (e) {
       throw Exception('error in Loading Orders');
+    }
+  }
+
+  Future<void> deleteOrder(
+      {required String id, required BuildContext context}) async {
+    try {
+      http.Response response = await http.delete(
+        Uri.parse('$uri/api/orders/$id'),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+        },
+      );
+
+      manageHttpResponse(
+          response: response,
+          context: context,
+          onSuccess: () {
+            showSnackBar(context, 'Order Deleted sucessfully');
+          });
+    } catch (e) {
+      log(e.toString());
     }
   }
 }

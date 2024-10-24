@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:multi_store_app/models/product.dart';
-import 'package:multi_store_app/views/screens/detail/screens/product_detail_screen.dart';
+import '../../../../models/product.dart';
+import '../../detail/screens/product_detail_screen.dart';
 
 class ProductItemWidget extends StatelessWidget {
   const ProductItemWidget({super.key, required this.product});
@@ -56,9 +56,6 @@ class ProductItemWidget extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 8,
-            ),
             Text(
               overflow: TextOverflow.ellipsis,
               product.productName,
@@ -68,9 +65,26 @@ class ProductItemWidget extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            const SizedBox(
-              height: 4,
-            ),
+            product.avrageRating == 0
+                ? const SizedBox()
+                : Row(
+                    children: [
+                      const Icon(
+                        Icons.star_sharp,
+                        color: Colors.amber,
+                        size: 12,
+                      ),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      Text(
+                        product.avrageRating.toStringAsFixed(1),
+                        style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
             Text(
               product.category,
               style: GoogleFonts.quicksand(

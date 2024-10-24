@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:multi_store_app/models/product.dart';
-import 'package:multi_store_app/provider/cart_provider.dart';
-import 'package:multi_store_app/services/manage_http_response.dart';
+import '../../../../models/product.dart';
+import '../../../../provider/cart_provider.dart';
+import '../../../../services/manage_http_response.dart';
 
 class ProductDetailScreen extends ConsumerStatefulWidget {
   const ProductDetailScreen({super.key, required this.product});
@@ -124,6 +124,23 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
               fontSize: 16,
             ),
           ),
+          Row(
+            children: [
+              widget.product.totalRatings == 0
+                  ? const Text('')
+                  : const Padding(
+                      padding: EdgeInsets.only(left: 8),
+                      child: Icon(Icons.star, color: Colors.amber, size: 18),
+                    ),
+              Text(widget.product.avrageRating.toString(),
+                  style: GoogleFonts.montserrat(
+                    fontWeight: FontWeight.bold,
+                  )),
+              Text(
+                "(${widget.product.totalRatings})",
+              )
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -136,11 +153,13 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
                       letterSpacing: 1.7,
                       color: const Color(0xFF363330)),
                 ),
-                Text(
-                  widget.product.description,
-                  style: GoogleFonts.mochiyPopOne(
-                    fontSize: 15,
-                    letterSpacing: 2,
+                SingleChildScrollView(
+                  child: Text(
+                    widget.product.description,
+                    style: GoogleFonts.mochiyPopOne(
+                      fontSize: 15,
+                      letterSpacing: 2,
+                    ),
                   ),
                 )
               ],
@@ -149,7 +168,7 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
         ],
       ),
       bottomSheet: Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: InkWell(
           onTap: isInCart
               ? null

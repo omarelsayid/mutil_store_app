@@ -1,4 +1,4 @@
-import 'package:multi_store_app/models/user.dart';
+import '../models/user.dart';
 import 'package:riverpod/riverpod.dart';
 
 class UserProvider extends StateNotifier<User?> {

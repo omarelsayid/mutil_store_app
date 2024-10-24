@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:multi_store_app/controller/product_controller.dart';
-import 'package:multi_store_app/controller/subcategory_controller.dart';
-import 'package:multi_store_app/models/categroy_model.dart';
-import 'package:multi_store_app/models/product.dart';
-import 'package:multi_store_app/models/subcategory_model.dart';
-import 'package:multi_store_app/views/screens/detail/widgets/inner_banner_widegt.dart';
-import 'package:multi_store_app/views/screens/detail/widgets/inner_header_widget.dart';
-import 'package:multi_store_app/views/screens/detail/widgets/subcategory_tile_widget.dart';
-import 'package:multi_store_app/views/screens/nav_screens/widgets/product_item_widget.dart';
-import 'package:multi_store_app/views/screens/nav_screens/widgets/reusable_text_widget.dart';
+import '../../../../controller/product_controller.dart';
+import '../../../../controller/subcategory_controller.dart';
+import '../../../../models/categroy_model.dart';
+import '../../../../models/product.dart';
+import '../../../../models/subcategory_model.dart';
+import 'inner_banner_widegt.dart';
+import 'inner_header_widget.dart';
+import 'subcategory_tile_widget.dart';
+import '../../nav_screens/widgets/product_item_widget.dart';
+import '../../nav_screens/widgets/reusable_text_widget.dart';
 
 class InnerCategoryContentWidget extends StatefulWidget {
   const InnerCategoryContentWidget({super.key, required this.category});

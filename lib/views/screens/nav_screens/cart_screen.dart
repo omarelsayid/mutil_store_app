@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:multi_store_app/provider/cart_provider.dart';
-import 'package:multi_store_app/views/screens/detail/screens/check_out_screen.dart';
-import 'package:multi_store_app/views/screens/main_screen.dart';
+import '../../../provider/cart_provider.dart';
+import '../detail/screens/check_out_screen.dart';
+import '../main_screen.dart';
 
 class CartScreen extends ConsumerStatefulWidget {
   const CartScreen({super.key});

@@ -1,5 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:multi_store_app/models/order.dart';
+import '../models/order.dart';
 
 class OrderProvider extends StateNotifier<List<Order>> {
   OrderProvider() : super([]);
@@ -9,6 +10,10 @@ class OrderProvider extends StateNotifier<List<Order>> {
     state = orders;
   }
 }
+
+
+
+
 
 final orderProvider = StateNotifierProvider<OrderProvider, List<Order>>((ref) {
   return OrderProvider();

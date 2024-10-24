@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:multi_store_app/models/categroy_model.dart';
+import '../models/categroy_model.dart';
 
 class CategoryProvider extends StateNotifier<List<Category>> {
   CategoryProvider() : super([]);

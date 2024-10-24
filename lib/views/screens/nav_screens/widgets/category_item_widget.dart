@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:multi_store_app/controller/categroy_controller.dart';
-import 'package:multi_store_app/provider/category_provider.dart';
-import 'package:multi_store_app/views/screens/detail/screens/inner_category_screen.dart';
-import 'package:multi_store_app/views/screens/nav_screens/widgets/reusable_text_widget.dart';
+import '../../../../controller/categroy_controller.dart';
+import '../../../../provider/category_provider.dart';
+import '../../detail/screens/inner_category_screen.dart';
+import 'reusable_text_widget.dart';
 
 class CategroyItemWidget extends ConsumerStatefulWidget {
   const CategroyItemWidget({super.key});

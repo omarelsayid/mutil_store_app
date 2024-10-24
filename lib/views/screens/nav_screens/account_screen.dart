@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:multi_store_app/controller/auth_controller.dart';
-import 'package:multi_store_app/views/screens/detail/screens/order_screen.dart';
+
+import '../../../controller/auth_controller.dart';
+import '../detail/screens/order_screen.dart';
 
 class AccountScreen extends StatelessWidget {
   AccountScreen({super.key});

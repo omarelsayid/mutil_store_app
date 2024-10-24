@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:multi_store_app/global_variable.dart';
-import 'package:multi_store_app/models/subcategory_model.dart';
+import '../global_variable.dart';
+import '../models/subcategory_model.dart';
 import 'package:http/http.dart' as http;
 
 class SubcategoryController {

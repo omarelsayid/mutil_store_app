@@ -1,9 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:http/http.dart' as http;
-import 'package:multi_store_app/global_variable.dart';
-import 'package:multi_store_app/models/product.dart';
+import '../global_variable.dart';
+import '../models/product.dart';
 
 class ProductController {
   Future<List<Product>> loadPopularProducts() async {

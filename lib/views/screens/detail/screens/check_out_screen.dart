@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:multi_store_app/controller/order_controller.dart';
-import 'package:multi_store_app/provider/cart_provider.dart';
-import 'package:multi_store_app/provider/user_provider.dart';
-import 'package:multi_store_app/views/screens/detail/screens/shipping_address_screen.dart';
+
+import '../../../../controller/order_controller.dart';
+import '../../../../provider/cart_provider.dart';
+import '../../../../provider/user_provider.dart';
+import 'shipping_address_screen.dart';
 
 class CheckoutScreen extends ConsumerStatefulWidget {
   const CheckoutScreen({super.key});
@@ -407,9 +408,9 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                         id: '',
                         fullName: ref.read(userProvider)!.fullName,
                         email: ref.read(userProvider)!.email,
-                        state: 'Egypty',
-                        city: 'Alexandria',
-                        locality: 'Sidi-Bishr',
+                        state: ref.read(userProvider)!.state,
+                        city: ref.read(userProvider)!.city,
+                        locality: ref.read(userProvider)!.locality,
                         productName: item.productName,
                         productPrice: item.productPrice,
                         quantity: item.quantity,

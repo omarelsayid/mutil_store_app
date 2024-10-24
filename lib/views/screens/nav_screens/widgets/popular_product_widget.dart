@@ -1,9 +1,9 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:multi_store_app/controller/product_controller.dart';
-import 'package:multi_store_app/provider/product_provider.dart';
-import 'package:multi_store_app/views/screens/nav_screens/widgets/product_item_widget.dart';
+import '../../../../controller/product_controller.dart';
+import '../../../../provider/product_provider.dart';
+import 'product_item_widget.dart';
 
 class PopularProductWidget extends ConsumerStatefulWidget {
   const PopularProductWidget({super.key});

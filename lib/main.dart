@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:multi_store_app/provider/user_provider.dart';
-import 'package:multi_store_app/views/screens/authentication_screens/login_screen.dart';
-import 'package:multi_store_app/views/screens/main_screen.dart';
+import 'provider/user_provider.dart';
+import 'views/screens/authentication_screens/login_screen.dart';
+import 'views/screens/main_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

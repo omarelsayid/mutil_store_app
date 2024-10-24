@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:multi_store_app/controller/categroy_controller.dart';
-import 'package:multi_store_app/controller/subcategory_controller.dart';
-import 'package:multi_store_app/models/categroy_model.dart';
-import 'package:multi_store_app/models/subcategory_model.dart';
-import 'package:multi_store_app/views/screens/detail/widgets/subcategory_tile_widget.dart';
-import 'package:multi_store_app/views/screens/nav_screens/widgets/header_widget.dart';
+import '../../../controller/categroy_controller.dart';
+import '../../../controller/subcategory_controller.dart';
+import '../../../models/categroy_model.dart';
+import '../../../models/subcategory_model.dart';
+import '../detail/widgets/subcategory_tile_widget.dart';
+import 'widgets/header_widget.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});

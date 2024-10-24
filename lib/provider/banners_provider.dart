@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:multi_store_app/models/banner_model.dart';
+import '../models/banner_model.dart';
 
 class BannerProvider extends StateNotifier<List<BannerModel>> {
   BannerProvider() : super([]);

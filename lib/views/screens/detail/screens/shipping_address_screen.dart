@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:multi_store_app/controller/auth_controller.dart';
-import 'package:multi_store_app/provider/user_provider.dart';
+import '../../../../controller/auth_controller.dart';
+import '../../../../provider/user_provider.dart';
 
 class ShippingAddressScreen extends ConsumerStatefulWidget {
   const ShippingAddressScreen({super.key});
