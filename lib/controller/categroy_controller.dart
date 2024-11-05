@@ -28,7 +28,7 @@ class CategoryController {
         throw Exception('Failed to load categories');
       }
     } catch (e) {
-      log('Error: ' + e.toString());
+      log('Error: $e');
       // Returning an empty list to handle errors gracefully
       return [];
     }

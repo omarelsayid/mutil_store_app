@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../services/manage_http_response.dart';
+import '../../main_screen.dart';
 
 import '../../../../controller/order_controller.dart';
 import '../../../../provider/cart_provider.dart';
@@ -114,7 +116,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                                       ),
                                       Align(
                                         alignment: Alignment.centerLeft,
-                                        child: user!.state.isNotEmpty
+                                        child: user.state.isNotEmpty
                                             ? Text(
                                                 user.state,
                                                 style: GoogleFonts.lato(
@@ -134,7 +136,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                                       ),
                                       Align(
                                         alignment: Alignment.centerLeft,
-                                        child: user!.city.isNotEmpty
+                                        child: user.city.isNotEmpty
                                             ? Text(
                                                 user.city,
                                                 style: GoogleFonts.lato(
@@ -374,7 +376,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
       ),
       bottomSheet: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: user!.state.isEmpty
+        child: user.state.isEmpty
             ? TextButton(
                 onPressed: () {
                   Navigator.push(
@@ -421,7 +423,20 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                         processing: true,
                         delivered: false,
                       );
-                    });
+                    }).then(
+                      (value) {
+                        cartProvider.clearCart();
+                        // ignore: use_build_context_synchronously
+                        showSnackBar(context, 'order successfully placed');
+                        Navigator.push(
+                          // ignore: use_build_context_synchronously
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MainScreen(),
+                          ),
+                        );
+                      },
+                    );
                   }
                 },
                 child: Container(

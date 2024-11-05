@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../../provider/cart_provider.dart';
 import '../detail/screens/check_out_screen.dart';
 import '../main_screen.dart';
@@ -17,7 +18,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
   @override
   Widget build(BuildContext context) {
     final cartData = ref.watch(cartprovider);
-    final _cartProvider = ref.read(cartprovider.notifier);
+    final cartProvider = ref.read(cartprovider.notifier);
     final totalAmount = ref.read(cartprovider.notifier).calculateTotalAmount();
     return Scaffold(
       appBar: PreferredSize(
@@ -222,7 +223,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                           children: [
                                             IconButton(
                                               onPressed: () {
-                                                _cartProvider.decrementCartItem(
+                                                cartProvider.decrementCartItem(
                                                     cartItem.productId);
                                               },
                                               icon: const Icon(
@@ -238,7 +239,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                             ),
                                             IconButton(
                                               onPressed: () {
-                                                _cartProvider.incrementCartItem(
+                                                cartProvider.incrementCartItem(
                                                     cartItem.productId);
                                               },
                                               icon: const Icon(
@@ -253,7 +254,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                                   ),
                                   IconButton(
                                     onPressed: () {
-                                      _cartProvider
+                                      cartProvider
                                           .removeCartItem(cartItem.productId);
                                     },
                                     icon: const Icon(
@@ -275,7 +276,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
         width: 416,
         height: 89,
         clipBehavior: Clip.hardEdge,
-        decoration: BoxDecoration(),
+        decoration: const BoxDecoration(),
         child: Stack(
           clipBehavior: Clip.none,
           children: [
@@ -305,7 +306,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
               ),
             ),
             Align(
-              alignment: Alignment(-0.19, -0.31),
+              alignment: const Alignment(-0.19, -0.31),
               child: Text(
                 ' \$ ${totalAmount.toStringAsFixed(2)}',
                 style: GoogleFonts.roboto(
@@ -316,7 +317,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
               ),
             ),
             Align(
-              alignment: Alignment(0.83, -1),
+              alignment: const Alignment(0.83, -1),
               child: InkWell(
                 onTap: totalAmount == 0.0
                     ? () {}

@@ -37,9 +37,9 @@ class _OrderScreenState extends ConsumerState<OrderScreen> {
   }
 
   Future<void> _deleteOrder(String orderId) async {
-    final OrderController _orderController = OrderController();
+    final OrderController orderController = OrderController();
     try {
-      await _orderController.deleteOrder(id: orderId, context: context);
+      await orderController.deleteOrder(id: orderId, context: context);
       // refrsh the list after the deletion
       _fetchOrders();
     } catch (e) {
@@ -195,7 +195,7 @@ class _OrderScreenState extends ConsumerState<OrderScreen> {
                                       ),
                                     ),
                                     Positioned(
-                                      left: 101,
+                                      left: 122,
                                       top: 14,
                                       child: SizedBox(
                                         width: 216,

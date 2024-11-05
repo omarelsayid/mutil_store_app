@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:multi_store_app/global_variable.dart';
-import 'package:multi_store_app/models/product_review.dart';
-import 'package:multi_store_app/services/manage_http_response.dart';
+
+import '../global_variable.dart';
+import '../models/product_review.dart';
+import '../services/manage_http_response.dart';
 
 class ProductReviewController {
   Future<void> uploadReview(

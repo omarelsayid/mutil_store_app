@@ -24,7 +24,7 @@ class HeaderWidget extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                     hintText: 'Enter text',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontSize: 14,
                       color: Color(0xFF7F7F7F),
                     ),

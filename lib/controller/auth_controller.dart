@@ -47,7 +47,7 @@ class AuthController {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LoginScreen(),
+                  builder: (context) => const LoginScreen(),
                 ));
             showSnackBar(context, 'Account has been Created for You');
           });
@@ -91,7 +91,7 @@ class AuthController {
 
             // Encode the user data recive from backend as sjon
             final userJson = jsonEncode(jsonDecode(response.body)['user']);
-
+            log(userJson);
             // update the application state with user data using Riverpod
             providerContainer.read(userProvider.notifier).setUser(userJson);
 
@@ -107,7 +107,7 @@ class AuthController {
             showSnackBar(context, 'Logged In');
           });
     } catch (e) {
-      log('Error:' + e.toString());
+      log('Error:$e');
     }
   }
 

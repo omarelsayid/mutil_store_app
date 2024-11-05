@@ -87,7 +87,7 @@ class _InnerCategoryScreenState extends State<InnerCategoryContentWidget> {
 
                           // create a padding widget to add spacing arround row
                           return Padding(
-                            padding: EdgeInsets.all(8.9),
+                            padding: const EdgeInsets.all(8.9),
                             child: Row(
                               // create a row of the subcategory tie
                               children: subcategories

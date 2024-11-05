@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../models/cart.dart';
 
 // Define a stateNotifier to expose an instance of the CartNotifier
@@ -11,7 +15,35 @@ final cartprovider =
 // A notifier class to manage the cart state, extending stateNotifier
 // with an initial state of an empty map
 class CartNotifier extends StateNotifier<Map<String, Cart>> {
-  CartNotifier() : super({});
+  CartNotifier() : super({}) {
+    _loadCartItems();
+  }
+
+  Future<void> _saveCart() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+
+    // Convert each Favourite object to a Map and encode the whole state
+    Map<String, String> encodedCart =
+        state.map((key, cart) => MapEntry(key, json.encode(cart.toMap())));
+
+    preferences.setString('cart_items', json.encode(encodedCart));
+  }
+
+  Future<void> _loadCartItems() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    if (preferences.getString('cart_items') != null) {
+      // Decode stored favourites and convert each entry back to a Favourite object
+      Map<String, dynamic> favouriteMap =
+          json.decode(preferences.getString('cart_items')!);
+      final favourite = favouriteMap.map(
+        (key, value) => MapEntry(
+          key,
+          Cart.fromMap(json.decode(value)),
+        ),
+      );
+      state = favourite;
+    }
+  }
 
   // Method to add product to the cart
   void addProductToCart({
@@ -44,6 +76,7 @@ class CartNotifier extends StateNotifier<Map<String, Cart>> {
           fullName: state[productId]!.fullName,
         )
       };
+      _saveCart();
     } else {
       // if the product is not in the cart, add it with the provided details
       state = {
@@ -61,6 +94,7 @@ class CartNotifier extends StateNotifier<Map<String, Cart>> {
           fullName: fullName,
         ),
       };
+      _saveCart();
     }
   }
 
@@ -71,6 +105,7 @@ class CartNotifier extends StateNotifier<Map<String, Cart>> {
 
       // Notify listeners that the state has changed
       state = {...state};
+      _saveCart();
     }
   }
 
@@ -81,6 +116,7 @@ class CartNotifier extends StateNotifier<Map<String, Cart>> {
 
       // Notify listeners that the state has changed
       state = {...state};
+      _saveCart();
     }
   }
 
@@ -89,6 +125,7 @@ class CartNotifier extends StateNotifier<Map<String, Cart>> {
     state.remove(productId);
     // Notify listeners that the state has changed
     state = {...state};
+    _saveCart();
   }
 
   // Method to calculate the total amount of items we have in the cart
@@ -100,6 +137,13 @@ class CartNotifier extends StateNotifier<Map<String, Cart>> {
     });
 
     return totalAmount;
+  }
+
+  // Method to clear the cart
+  void clearCart() {
+    state = {};
+    state = {...state};
+    _saveCart();
   }
 
   Map<String, Cart> get getCartItems => state;

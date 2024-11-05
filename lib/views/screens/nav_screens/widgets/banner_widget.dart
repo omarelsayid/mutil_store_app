@@ -40,7 +40,7 @@ class _BannerWidgetState extends ConsumerState<BannerWidget> {
               borderRadius: BorderRadius.all(Radius.circular(4)),
               color: Color(0xFFF7F7F7)),
           child: PageView.builder(
-            itemCount: banners!.length,
+            itemCount: banners.length,
             itemBuilder: (context, index) {
               final banner = banners[index];
               return Padding(
@@ -53,18 +53,21 @@ class _BannerWidgetState extends ConsumerState<BannerWidget> {
 
                     // the code below for the cashing images
 
-                    CachedNetworkImage(
-                  fit: BoxFit.cover,
-                  imageUrl: banner.image,
-                  progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      Container(
-                          child: Center(
-                    child: CircularProgressIndicator(
-                        color: Colors.blue, value: downloadProgress.progress),
-                  )),
-                  errorWidget: (context, url, error) => const Icon(
-                    Icons.error,
-                    color: Colors.red,
+                    ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  child: CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    imageUrl: banner.image,
+                    progressIndicatorBuilder:
+                        (context, url, downloadProgress) => Container(
+                            child: Center(
+                      child: CircularProgressIndicator(
+                          color: Colors.blue, value: downloadProgress.progress),
+                    )),
+                    errorWidget: (context, url, error) => const Icon(
+                      Icons.error,
+                      color: Colors.red,
+                    ),
                   ),
                 ),
               );

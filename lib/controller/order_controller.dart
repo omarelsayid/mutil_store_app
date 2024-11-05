@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import '../global_variable.dart';
 import '../models/order.dart';
 import '../services/manage_http_response.dart';
@@ -28,6 +29,8 @@ class OrderController {
     required bool processing,
     required bool delivered,
   }) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('auth_token');
     try {
       final Order order = Order(
         id: id,
@@ -52,6 +55,7 @@ class OrderController {
         body: order.toJson(),
         headers: <String, String>{
           "Content-Type": 'application/json; charset=UTF-8',
+          'X-auth-token': '$token',
         },
       );
       manageHttpResponse(
@@ -61,17 +65,21 @@ class OrderController {
             showSnackBar(context, 'You Have placed an order');
           });
     } catch (e) {
+      // ignore: use_build_context_synchronously
       showSnackBar(context, e.toString());
     }
   }
 
 // Method to GET order by ID
   Future<List<Order>> loadOrders({required String buyerId}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('auth_token');
     try {
       http.Response response = await http.get(
         Uri.parse('$uri/api/orders/$buyerId'),
         headers: <String, String>{
           "Content-Type": 'application/json; charset=UTF-8',
+          'X-auth-token': '$token',
         },
       );
       // check if the response status code is 200(OK).
@@ -89,17 +97,20 @@ class OrderController {
         throw Exception('failed to load orders');
       }
     } catch (e) {
-      throw Exception('error in Loading Orders');
+      throw Exception(e.toString());
     }
   }
 
   Future<void> deleteOrder(
       {required String id, required BuildContext context}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('auth_token');
     try {
       http.Response response = await http.delete(
         Uri.parse('$uri/api/orders/$id'),
         headers: <String, String>{
           "Content-Type": 'application/json; charset=UTF-8',
+          'X-auth-token': '$token',
         },
       );
 
@@ -111,6 +122,17 @@ class OrderController {
           });
     } catch (e) {
       log(e.toString());
+    }
+  }
+
+  Future<int> countDeliveredOrders({required String buyerId}) async {
+    try {
+      List<Order> orders = await loadOrders(buyerId: buyerId);
+      int deleveredCount =
+          orders.where((element) => element.delivered == true).toList().length;
+      return deleveredCount;
+    } catch (e) {
+      throw Exception(e.toString());
     }
   }
 }

@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
+
 import 'package:http/http.dart' as http;
+
 import '../global_variable.dart';
 import '../models/banner_model.dart';
 

@@ -40,7 +40,7 @@ class _CategroyWidgetState extends ConsumerState<CategroyItemWidget> {
         GridView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: categories!.length,
+          itemCount: categories.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
             mainAxisSpacing: 8,

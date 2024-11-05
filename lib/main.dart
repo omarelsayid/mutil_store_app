@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'provider/user_provider.dart';
 import 'views/screens/authentication_screens/login_screen.dart';
 import 'views/screens/main_screen.dart';
@@ -38,10 +37,12 @@ class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-       
         // This is the theme of your application.
         //
         // TRY THIS: Try running your application with "flutter run". You'll see

@@ -2,7 +2,8 @@ import 'package:custom_rating_bar/custom_rating_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:multi_store_app/controller/product_review_controller.dart';
+
+import '../../../../controller/product_review_controller.dart';
 import '../../../../models/order.dart';
 
 class OrderDetailScreen extends StatefulWidget {

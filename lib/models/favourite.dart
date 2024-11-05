@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-class Cart {
+class Favourite {
   final String productName;
   final int productPrice;
   final String category;
@@ -13,7 +13,7 @@ class Cart {
   final String productDescription;
   final String fullName;
 
-  Cart({
+  Favourite({
     required this.productName,
     required this.productPrice,
     required this.category,
@@ -41,8 +41,8 @@ class Cart {
     };
   }
 
-  factory Cart.fromMap(Map<String, dynamic> map) {
-    return Cart(
+  factory Favourite.fromMap(Map<String, dynamic> map) {
+    return Favourite(
       productName: map['productName'] as String,
       productPrice: map['productPrice'] as int,
       category: map['category'] as String,
@@ -58,6 +58,5 @@ class Cart {
 
   String toJson() => json.encode(toMap());
 
-  factory Cart.fromJson(String source) =>
-      Cart.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Favourite.fromJson(String source) => Favourite.fromMap(json.decode(source) as Map<String, dynamic>);
 }

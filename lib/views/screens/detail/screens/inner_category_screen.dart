@@ -19,7 +19,7 @@ class _InnerCategoryScreenState extends State<InnerCategoryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _pages = [
+    final List<Widget> pages = [
       InnerCategoryContentWidget(
         category: widget.category,
       ),
@@ -68,7 +68,7 @@ class _InnerCategoryScreenState extends State<InnerCategoryScreen> {
               label: 'Account'),
         ],
       ),
-      body: _pages[_pageIndex],
+      body: pages[_pageIndex],
     );
   }
 }
