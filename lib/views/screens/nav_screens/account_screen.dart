@@ -10,7 +10,7 @@ import '../detail/screens/order_screen.dart';
 import '../detail/screens/shipping_address_screen.dart';
 
 class AccountScreen extends ConsumerStatefulWidget {
-  const AccountScreen({Key? key}) : super(key: key);
+  const AccountScreen({super.key});
 
   @override
   _AccountScreenState createState() => _AccountScreenState();
@@ -140,7 +140,7 @@ class _AccountScreenState extends ConsumerState<AccountScreen> {
                   ),
                   Align(
                     alignment: const Alignment(0, 0.03),
-                    child: user!.fullName != ""
+                    child: user.fullName != ""
                         ? Text(
                             user.fullName,
                             style: GoogleFonts.montserrat(

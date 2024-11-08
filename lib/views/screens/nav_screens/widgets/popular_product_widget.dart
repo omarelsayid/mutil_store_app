@@ -14,7 +14,7 @@ class PopularProductWidget extends ConsumerStatefulWidget {
 }
 
 class _PopularProductWidgetState extends ConsumerState<PopularProductWidget> {
-  bool isLoading = true;
+  bool isLoading = false;
   // future that will hold the list of poular products
 
   @override

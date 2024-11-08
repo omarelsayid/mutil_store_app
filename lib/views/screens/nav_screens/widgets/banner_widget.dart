@@ -1,10 +1,8 @@
-import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../controller/banner_controller.dart';
-import '../../../../models/banner_model.dart';
 import '../../../../provider/banners_provider.dart';
 
 class BannerWidget extends ConsumerStatefulWidget {

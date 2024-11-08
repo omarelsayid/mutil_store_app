@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../provider/top_rated_products.dart';
 import '../../../../controller/product_controller.dart';
-import '../../../../provider/product_provider.dart';
 import 'product_item_widget.dart';
 
 class TopRatedProducts extends ConsumerStatefulWidget {
